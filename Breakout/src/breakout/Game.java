@@ -9,9 +9,13 @@ public class Game extends Application {
 		game.play(primary);
 	}
 	
+	private BrickManager brickMan;
+	private Ball ball;
 	private boolean gameOn;
 	
 	public Game() {
+		brickMan = new BrickManager(8, 5);
+		ball = new Ball();
 		gameOn = true;
 	}
 
@@ -23,11 +27,13 @@ public class Game extends Application {
 	}
 	
 	private void tick(){
-		//"1 tick = 1 frame"-ish
+		ball.tick();
 	}
 	
 	private void draw(Stage stage){
-		
+		brickMan.draw();
+		ball.draw();
+		stage.show();
 	}
 
 }
