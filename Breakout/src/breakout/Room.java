@@ -1,28 +1,27 @@
 package breakout;
 
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 public class Room {
-	//Stage room;
 	Scene scene;
-	GridPane grid;
+	Pane pane;
 	int width, height;
 
 	public Room(int width, int height) {
-		//room = stage;
 		this.width = width;
 		this.height = height;
-		grid = new GridPane();
-		scene = new Scene(grid, width, height);
-		scene.setFill(Color.BLACK);
-		//room.setScene(scene);
+		pane = new Pane();
+		scene = new Scene(pane, width, height);
+		scene.setFill(Color.DARKRED);
 	}
 	
 	public Scene getScene() {
 		return scene;
+	}
+	public Pane getPane(){
+		return pane;
 	}
 	public int getWidth() {
 		return width;
@@ -44,9 +43,4 @@ public class Room {
 			ball.bounceX();
 		}
 	}
-	
-	/*public void draw(){
-		room.show();
-	}*/
-
 }

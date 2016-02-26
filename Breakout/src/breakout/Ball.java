@@ -1,14 +1,20 @@
 package breakout;
 
+import javafx.scene.shape.Sphere;
+import javafx.scene.layout.Pane;
+
 public class Ball {
 	private int x, y, dx, dy, radius;
+	private Sphere sphere;
 
-	public Ball() {
-		x = 400;
-		y = 700;
+	public Ball(Pane pane) {
+		x = 450;
+		y = 550;
 		dx = 0;
 		dy = -3;
 		radius = 4;
+		sphere = new Sphere(radius);
+		pane.getChildren().add(sphere);
 	}
 	
 	public int getX() {
@@ -29,7 +35,12 @@ public class Ball {
 
 	public void tick(){
 		x += dx;
-		y += dx;
+		y += dy;
+	}
+	
+	public void updateSphere(){
+		sphere.setLayoutX(x);
+		sphere.setLayoutY(y);
 	}
 	
 	public void bounceX(){
@@ -37,10 +48,6 @@ public class Ball {
 	}
 	public void bounceY(){
 		y = -y;
-	}
-	
-	public void draw(){
-		
 	}
 
 }

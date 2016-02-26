@@ -11,9 +11,9 @@ public class Game extends Application {
 	private boolean gameOn;
 
 	public void start(Stage primary) throws Exception {
-		room = new Room(800, 800);
-		brickMan = new BrickManager(8, 5);
-		ball = new Ball();
+		room = new Room(900, 600);
+		brickMan = new BrickManager(room.getPane(), 16, 10, 50, 20);
+		ball = new Ball(room.getPane());
 		gameOn = true;
 
 		gameStage = primary;
@@ -36,11 +36,11 @@ public class Game extends Application {
 	private void tick(){
 		ball.tick();
 		room.collision(ball);
+		brickMan.collision(ball);
 	}
 	
 	private void draw(){
-		brickMan.draw();
-		ball.draw();
+		ball.updateSphere();
 		gameStage.show();
 	}
 
